@@ -1,0 +1,171 @@
+1.What is the difference between em and rem units in CSS?
+ans)In CSS, em and rem are both relative units used for measuring font sizes and other elements. The key difference between them lies in their reference points.
+
+em is relative to the font size of its parent element. For example, if a parent element has a font size of 16px and you set its child's font size to 1.5em, the child's font size will be 24px (16px * 1.5). This can lead to cascading effects if you have nested elements with different font sizes.
+
+rem (root em) is relative to the font size of the root element (usually the html element). This means that if you set the root element's font size to 16px and use rem for other elements, their font sizes will be relative to the root element's font size. For instance, 1.5rem would equal 24px (16px * 1.5).
+
+2)Explain the concept of closures in JavaScript. Provide an example where a closure might be useful.(With code)
+
+In JavaScript, a closure is a function that has access to its own scope, as well as the scope of its outer functions, even when the
+ outer functions have returned. This allows the inner function to "remember"
+ the variables and functions of its outer scope, making it a powerful tool for creating private variables and functions.
+
+A closure is created when a function is defined inside another function, and the inner function uses variables or functions from the outer 
+function's scope. The inner function can then be returned or passed as an argument to another function, and it will retain its access 
+to the outer function's scope.
+
+
+function createCounter() {
+  let count = 0;
+
+  return function increment() {
+    count++;
+    console.log(`Count: ${count}`);
+  };
+}
+
+const counter = createCounter();
+
+counter(); // Count: 1
+counter(); // Count: 2
+counter(); 
+
+3)What are semantic HTML tags?
+Semantic HTML tags are HTML elements that provide meaning to the structure of a web page, rather than just defining its presentation.
+ They help search engines, screen readers, and other tools understand the content and layout of a web page, making it more accessible and user-friendly.
+
+
+ 4)How would you create a responsive design without using a CSS framework like Bootstrap?(WRITE THE CODE)
+ <!DOCTYPE html>
+ <html>
+ <head>
+   <title>Responsive Design Example</title>
+   <link rel="stylesheet" href="styles.css">
+ </head>
+ <body>
+   <header>
+     <nav>
+       <ul>
+         <li><a href="#">Home</a></li>
+         <li><a href="#">About</a></li>
+         <li><a href="#">Contact</a></li>
+       </ul>
+     </nav>
+   </header>
+   <main>
+     <section>
+       <h1>Welcome to our website</h1>
+       <p>This is an example page.</p>
+     </section>
+     <aside>
+       <p>This is some related content.</p>
+     </aside>
+   </main>
+   <footer>
+     <p>&copy; 2023 Example Website</p>
+   </footer>
+ </body>
+ </html>
+
+ /* Global Styles */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f9f9f9;
+}
+
+/* Header Styles */
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 1em;
+  text-align: center;
+}
+
+header nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+header nav ul li {
+  margin-right: 20px;
+}
+
+header nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Main Styles */
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2em;
+}
+
+main section {
+  background-color: #fff;
+  padding: 2em;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+main aside {
+  background-color: #fff;
+  padding: 2em;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer Styles */
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 1em;
+  text-align: center;
+  clear: both;
+}
+
+/* Responsive Styles */
+
+@media only screen and (max-width: 768px) {
+  main {
+    flex-direction: column;
+  }
+  main section, main aside {
+    margin-bottom: 10px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  header nav ul {
+    flex-direction: column;
+  }
+  header nav ul li {
+    margin-right: 0;
+  }
+  main section, main aside {
+    padding: 1em;
+  }
+}
+
+
+5)What is the purpose of the srcset attribute in the <img> tag?
+The srcset attribute is used in the <img> tag to specify multiple image sources for different screen sizes and devices. Its primary purpose is to provide a way for developers to serve 
+images that are optimized for different screen sizes, resolutions, and devices, ensuring that the best possible image is displayed to the user.
