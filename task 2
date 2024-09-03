@@ -1,0 +1,97 @@
+1)#include <iostream>
+using namespace std;
+
+bool isPrime(int n) {
+    if (n <= 1) return false; // Numbers less than or equal to 1 are not prime
+    for (int i = 2; i * i <= n; i++) { // Check for divisibility up to the square root of n
+        if (n % i == 0) return false;
+    }
+    return true;
+}
+
+int main() {
+    int number = 17;
+    cout << (isPrime(number) ? "True" : "False") << endl; // Example usage
+    return 0;
+}
+
+
+#include <iostream>
+#include <cmath>
+
+int factorial(int num) {
+    if (num == 0 || num == 1) return 1;
+    int result = 1;
+    for (int i = 2; i <= num; ++i) {
+        result *= i;
+    }
+    return result;
+}
+
+bool is_strong_number(int n) {
+    int sum_of_factorials = 0, temp = n;
+    while (temp > 0) {
+        sum_of_factorials += factorial(temp % 10);
+        temp /= 10;
+    }
+    return sum_of_factorials == n;
+}
+
+int main() {
+    std::cout << std::boolalpha << is_strong_number(145) << std::endl;  // True
+    std::cout << std::boolalpha << is_strong_number(132) << std::endl;  // False
+    return 0;
+}
+3)#include <iostream>
+
+int sum_of_digits(int n) {
+    int sum = 0;
+    while (n > 0) {
+        sum += n % 10;
+        n /= 10;
+    }
+    return sum;
+}
+
+int main() {
+    std::cout << sum_of_digits(12345) << std::endl;  // 15
+    return 0;
+}
+4)#include <iostream>
+#include <vector>
+#include <algorithm>
+
+int find_maximum(const std::vector<int>& vec) {
+    return *std::max_element(vec.begin(), vec.end());
+}
+
+int main() {
+    std::vector<int> nums = {1, 7, 3, 9, 2};
+    std::cout << find_maximum(nums) << std::endl;  // 9
+    return 0;
+}
+5)#include <iostream>
+#include <vector>
+
+std::vector<int> fibonacci_sequence(int length) {
+    std::vector<int> sequence;
+    if (length <= 0) return sequence;
+    sequence.push_back(0);
+    if (length == 1) return sequence;
+    sequence.push_back(1);
+    while (sequence.size() < length) {
+        int next_value = sequence[sequence.size() - 1] + sequence[sequence.size() - 2];
+        sequence.push_back(next_value);
+    }
+    return sequence;
+}
+
+int main() {
+    std::vector<int> fib_seq = fibonacci_sequence(5);
+    for (int num : fib_seq) {
+        std::cout << num << " ";
+    }
+    std::cout << std::endl;  // 0 1 1 2 3
+    return 0;
+}
+
